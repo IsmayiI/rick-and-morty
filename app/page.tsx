@@ -1,4 +1,8 @@
 
 export default function Page() {
-   return <h1>Hello, Next.js!</h1>
+   return (
+      <section className="container">
+         <h1 className="text-white font-bold">The Rick and Morty</h1>
+      </section>
+   )
 }
