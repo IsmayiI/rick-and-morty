@@ -1,6 +1,6 @@
 import { getCharacter } from "@actions/getCharacter"
+import { error } from "console"
 import { Metadata } from "next"
-import { title } from "process"
 
 interface Props {
    params: {
@@ -16,10 +16,16 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
    }
 }
 
+function delay(ms: number) {
+   throw new Error('damn bro')
+   return new Promise(resolve => setTimeout(resolve, ms));
+}
 
-const CharacterIdPage = async ({ params }: Props) => {
+
+const CharacterPage = async ({ params }: Props) => {
 
    const character = await getCharacter(params.characterId)
+   await delay(2000)
 
    return (
       <section>
@@ -28,4 +34,4 @@ const CharacterIdPage = async ({ params }: Props) => {
    )
 }
 
-export default CharacterIdPage
+export default CharacterPage
